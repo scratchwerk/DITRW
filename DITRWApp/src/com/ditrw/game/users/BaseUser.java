@@ -1,6 +1,5 @@
 package com.ditrw.game.users;
 
-import com.ditrw.roles.Role;
 
 public class BaseUser {
 	
@@ -9,7 +8,7 @@ public class BaseUser {
 	private String password;
 	
 	private int organizationID;
-	private Role role;
+	//private Role role;
 	
 private String gender;
 	
@@ -116,12 +115,7 @@ private String gender;
 	public void setOrganizationID(int organizationID) {
 		this.organizationID = organizationID;
 	}
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
-	}
+
 	
 	
 	
