@@ -57,9 +57,29 @@ public class Player extends BaseUser{
 	private int boardPosition = 0;
 	private int numOfAs = 0;
 	
+	private boolean inInnerSquare = false;
+	
+	private int lifeYears = 15;
 	
 	
 	
+	
+	public boolean isInInnerSquare() {
+		return inInnerSquare;
+	}
+
+
+
+
+
+	public void setInInnerSquare(boolean inInnerSquare) {
+		this.inInnerSquare = inInnerSquare;
+	}
+
+
+
+
+
 	public Player(int id, int householdIncome, int numOfKids, boolean married,
 			int travelPasses, String education, int bankBalance, int salary, boolean isEmployed) {
 		super();
@@ -438,6 +458,54 @@ public class Player extends BaseUser{
 
 	public void setTotalBills(int totalBills) {
 		this.totalBills = totalBills;
+	}
+
+
+
+
+
+	public int getBoardPosition() {
+		return boardPosition;
+	}
+
+
+
+
+
+	public void setBoardPosition(int boardPosition) {
+		this.boardPosition = boardPosition;
+	}
+
+
+
+
+
+	public int getNumOfAs() {
+		return numOfAs;
+	}
+
+
+
+
+
+	public void setNumOfAs(int numOfAs) {
+		this.numOfAs = numOfAs;
+	}
+
+
+
+
+
+	public int getLifeYears() {
+		return lifeYears;
+	}
+
+
+
+
+
+	public void setLifeYears(int lifeYears) {
+		this.lifeYears = lifeYears;
 	}
 	
 	

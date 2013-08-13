@@ -2,6 +2,7 @@ package com.ditrw.game.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import com.ditrw.game.users.Player;
 import com.google.appengine.api.rdbms.AppEngineDriver;
@@ -26,6 +27,10 @@ public class Board {
 	private HashMap innerSquares = null; 
 	
 	
+	public Board(){
+		this.outerSquares.put(1, "Start Square");
+	}
+	
 	//move to the next player
 	public Player nextPlayer(){
 		Player player = null;
@@ -43,6 +48,12 @@ public class Board {
 		return player;
 	}
 
+	
+	public static int rollDice(){
+		Random r = new Random();
+		int i1=r.nextInt(13-1) + 1;
+		return i1;
+	}
 
 	public ArrayList getPlayers() {
 		return players;
