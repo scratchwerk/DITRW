@@ -2,13 +2,14 @@ package com.ditrw.game.objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import com.ditrw.game.users.Player;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 
 public class Board {
 	private ArrayList players = null;
-	private int currentPlayer = 0;
+	private Player currentPlayer;
 	
 	//board questions
 	private ArrayList group1Questions = null;
@@ -26,23 +27,33 @@ public class Board {
 	private HashMap innerSquares = null; 
 	
 	
+	public Board(){
+		this.outerSquares.put(1, "Start Square");
+	}
+	
 	//move to the next player
-	public Player nextPlayer(){
+	public Player nextPlayer(Player currentPlayer){
 		Player player = null;
 		
 		int size = players.size();
 		
-		if(currentPlayer + 1 <= size){
-			currentPlayer++;
-			player = (Player)players.get(currentPlayer);
+		if(currentPlayer.getId() + 1 <= size){
+			player = (Player)players.get(currentPlayer.getId() +1);
+			this.currentPlayer = player;
 		}else{
-			currentPlayer = 0;
-			player = (Player)players.get(currentPlayer);
+			player = (Player)players.get(0);
+			this.currentPlayer = player;
 		}
 		
 		return player;
 	}
 
+	
+	public static int rollDice(){
+		Random r = new Random();
+		int i1=r.nextInt(13-1) + 1;
+		return i1;
+	}
 
 	public ArrayList getPlayers() {
 		return players;
@@ -54,12 +65,12 @@ public class Board {
 	}
 
 
-	public int getCurrentPlayer() {
+	public Player getCurrentPlayer() {
 		return currentPlayer;
 	}
 
 
-	public void setCurrentPlayer(int currentPlayer) {
+	public void setCurrentPlayer(Player currentPlayer) {
 		this.currentPlayer = currentPlayer;
 	}
 

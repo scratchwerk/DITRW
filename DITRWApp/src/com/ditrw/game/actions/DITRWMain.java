@@ -1,6 +1,7 @@
 package com.ditrw.game.actions;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import com.ditrw.game.objects.*;
 import com.ditrw.game.users.*;
@@ -12,6 +13,8 @@ public class DITRWMain {
 		
 		System.out.println("Welcome to the Day in the Real World Game....");
 		
+		Board board = new Board();
+		
 		Player p1 = new Player();
 		p1.setId(1);
 		p1.setFirstName("Ronnie");
@@ -19,13 +22,25 @@ public class DITRWMain {
 		
 		ArrayList players = new ArrayList();
 		players.add(p1);
+		board.setCurrentPlayer(p1);
 		
-		Board board = new Board();
+		
 		board.setPlayers(players);
 		
 		while(true){
-			int currentPlayer = board.getCurrentPlayer();
+			Player currentPlayer = board.getCurrentPlayer();
 			
+			System.out.println(currentPlayer.getFirstName() + " it is your turn...");
+			System.out.println("Balance: $" + currentPlayer.getBankBalance() + " .... Press enter to roll..");
+			
+			Scanner sc = new Scanner(System.in);
+			sc.nextLine();
+			
+			int roll = Board.rollDice();
+			System.out.println("You just rolled a " + roll);
+			
+			board.nextPlayer(currentPlayer);
+			System.out.println("");
 			
 		}
 
