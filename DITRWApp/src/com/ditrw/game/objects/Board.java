@@ -28,7 +28,23 @@ public class Board {
 	
 	
 	public Board(){
-		this.outerSquares.put(1, "Start Square");
+		this.outerSquares = new HashMap();
+		this.innerSquares = new HashMap();
+		
+		for(int x=1; x < 33; x++){
+			BoardSquare bs = new BoardSquare();
+			bs.setSquarePosition(x);
+			bs.setSquareName("OuterSquare#" + x);
+			this.outerSquares.put(x, bs);
+		}
+		
+		for(int x=1; x < 25; x++){
+			BoardSquare bs = new BoardSquare();
+			bs.setSquarePosition(x);
+			bs.setSquareName("InnerSquare#" + x);
+			this.innerSquares.put(x, bs);
+		}
+		
 	}
 	
 	//move to the next player
@@ -53,6 +69,36 @@ public class Board {
 		Random r = new Random();
 		int i1=r.nextInt(13-1) + 1;
 		return i1;
+	}
+	
+	public BoardSquare movePlayer(Player player, int dice){
+		BoardSquare bs = null;
+		
+		int pos = player.getBoardPosition();
+		int ringSpaces = 0;
+		
+		if(player.isInInner()){
+			ringSpaces = this.innerSquares.size();
+		}else{
+			ringSpaces = this.outerSquares.size();
+		}
+		
+		int newPos = -1;
+		if((pos + dice) > ringSpaces){
+			newPos = pos - ringSpaces + dice;
+			player.setBoardPosition(newPos);
+		}else{
+			newPos = pos + dice;
+			player.setBoardPosition(newPos);
+		}
+		
+		if(player.isInInner()){
+			bs = (BoardSquare) this.innerSquares.get(newPos);
+		}else{
+			bs = (BoardSquare) this.outerSquares.get(newPos);
+		}
+		
+		return bs;
 	}
 
 	public ArrayList getPlayers() {

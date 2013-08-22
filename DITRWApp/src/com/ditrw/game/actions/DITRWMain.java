@@ -39,6 +39,9 @@ public class DITRWMain {
 			int roll = Board.rollDice();
 			System.out.println("You just rolled a " + roll);
 			
+			BoardSquare bs = board.movePlayer(currentPlayer, roll);
+			System.out.println("You just landed on " + bs.getSquareName());
+			
 			board.nextPlayer(currentPlayer);
 			System.out.println("");
 			

@@ -2,7 +2,7 @@ package com.ditrw.game.users;
 
 public class Player extends BaseUser{
 
-	
+
 	public final static String NO_HS_DIPLOMA = "No High School Diploma";
 	public final static String HS_DIPLOMA = "High School Diploma";
 	public final static String COLLEGE_ACCEPTED = "Accepted to College";
@@ -56,6 +56,7 @@ public class Player extends BaseUser{
 	
 	private int boardPosition = 0;
 	private int numOfAs = 0;
+	private boolean inInner = false;
 	
 	
 	
@@ -75,6 +76,33 @@ public class Player extends BaseUser{
 	}
 
 
+	public boolean isInInner(){
+		return inInner;
+	}
+	
+	public void setInInner(boolean inInner){
+		this.inInner = inInner;
+	}
+	
+	
+	public int getBoardPosition() {
+		return boardPosition;
+	}
+
+
+	public void setBoardPosition(int boardPosition) {
+		this.boardPosition = boardPosition;
+	}
+
+
+	public int getNumOfAs() {
+		return numOfAs;
+	}
+
+
+	public void setNumOfAs(int numOfAs) {
+		this.numOfAs = numOfAs;
+	}
 	
 
 
