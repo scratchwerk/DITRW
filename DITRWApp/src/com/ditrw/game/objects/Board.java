@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import com.ditrw.game.db.BoardDBManager;
 import com.ditrw.game.users.Player;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 
@@ -31,19 +32,7 @@ public class Board {
 		this.outerSquares = new HashMap();
 		this.innerSquares = new HashMap();
 		
-		for(int x=1; x < 33; x++){
-			BoardSquare bs = new BoardSquare();
-			bs.setSquarePosition(x);
-			bs.setSquareName("OuterSquare#" + x);
-			this.outerSquares.put(x, bs);
-		}
-		
-		for(int x=1; x < 25; x++){
-			BoardSquare bs = new BoardSquare();
-			bs.setSquarePosition(x);
-			bs.setSquareName("InnerSquare#" + x);
-			this.innerSquares.put(x, bs);
-		}
+		BoardDBManager.generateBoard();
 		
 	}
 	

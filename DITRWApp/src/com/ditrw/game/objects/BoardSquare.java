@@ -1,7 +1,10 @@
 package com.ditrw.game.objects;
 
+import com.google.appengine.api.datastore.Key;
+
 public class BoardSquare {
 	
+	private Key id;
 	private int squareType = 0;
 	private String squareName = "";
 	private int squarePosition = -1;
@@ -24,6 +27,13 @@ public class BoardSquare {
 	public void setSquarePosition(int squarePosition) {
 		this.squarePosition = squarePosition;
 	}
+	public Key getId() {
+		return id;
+	}
+	public void setId(Key id) {
+		this.id = id;
+	}
+	
 	
 	
 	
