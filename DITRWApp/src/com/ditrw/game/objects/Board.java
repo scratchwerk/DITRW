@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
 
+import com.ditrw.game.db.BoardDBManager;
 import com.ditrw.game.users.Player;
 import com.google.appengine.api.rdbms.AppEngineDriver;
 
@@ -23,28 +24,16 @@ public class Board {
 	private int group4Pos = 0;
 	
 	
-	private HashMap outerSquares = null; 
-	private HashMap innerSquares = null; 
+	private HashMap outerSquares = null;
+	private HashMap innerSquares = null;
 	
 	
 	public Board(){
 		this.outerSquares = new HashMap();
 		this.innerSquares = new HashMap();
 		
-		for(int x=1; x < 33; x++){
-			BoardSquare bs = new BoardSquare();
-			bs.setSquarePosition(x);
-			bs.setSquareName("OuterSquare#" + x);
-			this.outerSquares.put(x, bs);
-		}
-		
-		for(int x=1; x < 25; x++){
-			BoardSquare bs = new BoardSquare();
-			bs.setSquarePosition(x);
-			bs.setSquareName("InnerSquare#" + x);
-			this.innerSquares.put(x, bs);
-		}
-		
+		outerSquares = BoardDBManager.generateBoard();
+	
 	}
 	
 	//move to the next player
@@ -63,7 +52,7 @@ public class Board {
 		
 		return player;
 	}
-
+	
 	
 	public static int rollDice(){
 		Random r = new Random();
@@ -100,126 +89,124 @@ public class Board {
 		
 		return bs;
 	}
-
+	
 	public ArrayList getPlayers() {
 		return players;
 	}
-
-
+	
+	
 	public void setPlayers(ArrayList players) {
 		this.players = players;
 	}
-
-
+	
+	
 	public Player getCurrentPlayer() {
 		return currentPlayer;
 	}
-
-
+	
+	
 	public void setCurrentPlayer(Player currentPlayer) {
-		this.currentPlayer = currentPlayer;
+	this.currentPlayer = currentPlayer;
 	}
-
-
+	
+	
 	public ArrayList getGroup1Questions() {
-		return group1Questions;
+	return group1Questions;
 	}
-
-
+	
+	
 	public void setGroup1Questions(ArrayList group1Questions) {
-		this.group1Questions = group1Questions;
+	this.group1Questions = group1Questions;
 	}
-
-
+	
+	
 	public ArrayList getGroup2Questions() {
-		return group2Questions;
+	return group2Questions;
 	}
-
-
+	
+	
 	public void setGroup2Questions(ArrayList group2Questions) {
-		this.group2Questions = group2Questions;
+	this.group2Questions = group2Questions;
 	}
-
-
+	
+	
 	public ArrayList getGroup3Questions() {
-		return group3Questions;
+	return group3Questions;
 	}
-
-
+	
+	
 	public void setGroup3Questions(ArrayList group3Questions) {
-		this.group3Questions = group3Questions;
+	this.group3Questions = group3Questions;
 	}
-
-
+	
+	
 	public ArrayList getGroup4Questions() {
-		return group4Questions;
+	return group4Questions;
 	}
-
-
+	
+	
 	public void setGroup4Questions(ArrayList group4Questions) {
-		this.group4Questions = group4Questions;
+	this.group4Questions = group4Questions;
 	}
-
-
+	
+	
 	public int getGroup1Pos() {
-		return group1Pos;
+	return group1Pos;
 	}
-
-
+	
+	
 	public void setGroup1Pos(int group1Pos) {
-		this.group1Pos = group1Pos;
+	this.group1Pos = group1Pos;
 	}
-
-
+	
+	
 	public int getGroup2Pos() {
-		return group2Pos;
+	return group2Pos;
 	}
-
-
+	
+	
 	public void setGroup2Pos(int group2Pos) {
-		this.group2Pos = group2Pos;
+	this.group2Pos = group2Pos;
 	}
-
-
+	
+	
 	public int getGroup3Pos() {
-		return group3Pos;
+	return group3Pos;
 	}
-
-
+	
+	
 	public void setGroup3Pos(int group3Pos) {
-		this.group3Pos = group3Pos;
+	this.group3Pos = group3Pos;
 	}
-
-
+	
+	
 	public int getGroup4Pos() {
-		return group4Pos;
+	return group4Pos;
 	}
-
-
+	
+	
 	public void setGroup4Pos(int group4Pos) {
-		this.group4Pos = group4Pos;
+	this.group4Pos = group4Pos;
 	}
-
-
+	
+	
 	public HashMap getOuterSquares() {
-		return outerSquares;
+	return outerSquares;
 	}
-
-
+	
+	
 	public void setOuterSquares(HashMap outerSquares) {
-		this.outerSquares = outerSquares;
+	this.outerSquares = outerSquares;
 	}
-
-
+	
+	
 	public HashMap getInnerSquares() {
-		return innerSquares;
+	return innerSquares;
 	}
-
-
+	
+	
 	public void setInnerSquares(HashMap innerSquares) {
-		this.innerSquares = innerSquares;
+	this.innerSquares = innerSquares;
 	}
-	
-	
-	
+		
 }

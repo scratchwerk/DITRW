@@ -14,7 +14,7 @@ public class BoardRemoteDB {
 	public static void main(String[] args) {
 
 		String username = "Something";
-        String password =  "New";
+        String password = "New";
         RemoteApiOptions options = new RemoteApiOptions().server("localhost", 8888).credentials(username, password);
         RemoteApiInstaller installer = new RemoteApiInstaller();
         try {
@@ -23,12 +23,24 @@ public class BoardRemoteDB {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+        
         try {
             DatastoreService ds = DatastoreServiceFactory.getDatastoreService();
-            System.out.println("Key of new entity is " + ds.put(new Entity("Hello Remote API!")));
+            for(int x=1; x < 33; x++){
+             Entity boardSquare = new Entity("BoardSquare", x);
+
+             boardSquare.setProperty("squareType", 0);
+             boardSquare.setProperty("squarePosition", x);
+             boardSquare.setProperty("squareName", "Go");
+            
+             System.out.println("Key of new entity is " + ds.put(boardSquare));
+            }
         } finally {
             installer.uninstall();
         }
+
+
+
 
 
 	}

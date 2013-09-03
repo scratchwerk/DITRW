@@ -1,4 +1,4 @@
-package com.ditrw.game.actions;
+package com.scratchwerk.ditrw.main;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -23,28 +23,28 @@ public class DITRWMain {
 		ArrayList players = new ArrayList();
 		players.add(p1);
 		board.setCurrentPlayer(p1);
-
-
+		
+		
 		board.setPlayers(players);
-
+		
 		while(true){
 			Player currentPlayer = board.getCurrentPlayer();
-	
+			
 			System.out.println(currentPlayer.getFirstName() + " it is your turn...");
 			System.out.println("Balance: $" + currentPlayer.getBankBalance() + " .... Press enter to roll..");
-	
+			
 			Scanner sc = new Scanner(System.in);
 			sc.nextLine();
-	
+			
 			int roll = Board.rollDice();
 			System.out.println("You just rolled a " + roll);
-	
+			
 			BoardSquare bs = board.movePlayer(currentPlayer, roll);
 			System.out.println("You just landed on " + bs.getSquareName());
-	
+			
 			board.nextPlayer(currentPlayer);
 			System.out.println("");
-
+			
 		}
 
 	}
