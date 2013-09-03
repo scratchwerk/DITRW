@@ -11,6 +11,7 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.FilterOperator;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -22,9 +23,15 @@ public class BoardDBManager {
 	public static HashMap generateBoard(){
 		HashMap squares = null;
 		
-		DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
-		Query query = new Query("BoardSquare");
-		List<Entity> boardSquares = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10));
+		try{
+			DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
+			Query query = new Query("BoardSquare");
+			List<Entity> boardSquares = datastore.prepare(query).asList(FetchOptions.Builder.withLimit(10));
+			
+		}catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		return squares;
