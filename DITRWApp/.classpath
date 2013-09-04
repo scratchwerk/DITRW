@@ -24,5 +24,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-aop-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-asm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-beans-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-context-support-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-core-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-expression-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-web-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/spring-webmvc-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

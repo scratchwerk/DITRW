@@ -3,12 +3,24 @@ package com.ditrw.game.actions;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.ditrw.game.objects.*;
 import com.ditrw.game.users.*;
 
+@Controller
 public class DITRWMain {
 
-	public static void main(String[] args) {
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public String homepage(ModelMap model) {
+		return "index";
+	}
+	
+	@RequestMapping(value="/game/start", method = RequestMethod.GET)
+	public String startGame(ModelMap model) {
 		// TODO Auto-generated method stub
 		
 		System.out.println("Welcome to the Day in the Real World Game....");
@@ -27,6 +39,16 @@ public class DITRWMain {
 
 		board.setPlayers(players);
 
+		return "move";
+		
+
+
+	}
+	
+	@RequestMapping(value="/game/move", method = RequestMethod.GET)
+	public String movePlayer(ModelMap model) {
+		
+		/*
 		while(true){
 			Player currentPlayer = board.getCurrentPlayer();
 	
@@ -45,8 +67,10 @@ public class DITRWMain {
 			board.nextPlayer(currentPlayer);
 			System.out.println("");
 
-		}
-
+		}*/
+		
+		
+		return "move";
 	}
 
 }
